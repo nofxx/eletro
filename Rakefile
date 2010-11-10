@@ -6,7 +6,7 @@ begin
   Jeweler::Tasks.new do |gem|
     gem.name = "eletro"
     gem.summary = %Q{Eletric Helpers on Ruby}
-    gem.description = %Q{Eletric Stuff, Ohm Law, Karnaugh Maps and other gems on Ruby}
+    gem.description = %Q{Eletric Stuff, Ohm Law, Resistor Colors, Karnaugh Maps and other gems on Ruby}
     gem.email = "x@nofxx.com"
     gem.homepage = "http://github.com/nofxx/eletro"
     gem.authors = ["Marcos Piccinini"]

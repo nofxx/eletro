@@ -105,20 +105,20 @@ module Eletro
 
 
     def rgblize color
-      case color.downcase.to_sym
-        when :k then  "\e[40m#{color}\e[0m"
-        when :b then  "\e[0;33m#{color}\e[0m"
-        when :r then  "\e[41m#{color}\e[0m"
-        when :g then  "\e[42m#{color}\e[0m"
-        when :y then  "\e[1;33m#{color}\e[0m"
-        when :o then  "\e[43m#{color}\e[0m"
-        when :u then  "\e[44m#{color}\e[0m"
-        when :v then  "\e[45m#{color}\e[0m"
-        when :w then  "\e[47m#{color}\e[0m"
-        when :a then  "\e[31m#{color}\e[0m"
+      s = case color.downcase.to_sym
+        when :k then  "\e[40m"
+        when :b then  "\e[0;33m"
+        when :r then  "\e[41m"
+        when :g then  "\e[42m"
+        when :y then  "\e[1;33m"
+        when :o then  "\e[43m"
+        when :u then  "\e[44m"
+        when :v then  "\e[45m"
+        when :w then  "\e[47m"
+        when :a then  "\e[31m"
         else ".."
       end
-
+      s += "#{color}\e[0m"
     end
 
     def bold(txt);      "\e[2m#{txt}\e[0m";    end

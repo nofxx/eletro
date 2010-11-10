@@ -5,23 +5,21 @@
 
 Gem::Specification.new do |s|
   s.name = %q{eletro}
-  s.version = "0.0.1"
+  s.version = "0.0.2"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Piccinini"]
   s.date = %q{2010-11-10}
   s.default_executable = %q{eletro}
-  s.description = %q{Eletric Stuff, Ohm Law, Karnaugh Maps and other gems on Ruby}
+  s.description = %q{Eletric Stuff, Ohm Law, Resistor Colors, Karnaugh Maps and other gems on Ruby}
   s.email = %q{x@nofxx.com}
   s.executables = ["eletro"]
   s.extra_rdoc_files = [
-    "LICENSE",
-     "README.rdoc"
+    "README.rdoc"
   ]
   s.files = [
     ".document",
      ".gitignore",
-     "LICENSE",
      "README.rdoc",
      "Rakefile",
      "VERSION",

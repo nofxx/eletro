@@ -18,8 +18,7 @@ end
 if ARGV.empty?
   puts <<EOF
 
-
----------- Eletro!
+                   +[ Eletro ]-
 
 Use:
 
@@ -27,7 +26,21 @@ Use:
     eletro 220
 
 
+Color codes:
 
+      k  =>  black
+      b  =>  brown
+      r  =>  red
+      o  =>  orange
+      y  =>  yellow
+      g  =>  green
+      u  =>  blue
+      v  =>  violet
+      a  =>  gray
+      w  =>  white
+
+      l  =>  gold
+      s  =>  silver
 EOF
 else
   Eletro.do_your_thing(ARGV)

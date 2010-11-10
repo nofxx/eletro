@@ -1,9 +1,30 @@
 = eletro
 
-Description goes here.
+Eletric Stuff, Ohm Law, Resistor Colors, Karnaugh Maps...
+
+
+== Resistor Codes
+
+
+    eletro 220
+
+    -> 220Ω   --RRB--
+
+
+    eletro BKR
+
+    -> 1kΩ   --BKR--
+
+
+With *SH colors!
+
+== Ohm`s Law
+
+TBF
+
 
 == Note on Patches/Pull Requests
- 
+
 * Fork the project.
 * Make your feature addition or bug fix.
 * Add tests for it. This is important so I don't break it in a
