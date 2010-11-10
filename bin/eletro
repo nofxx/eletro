@@ -1,0 +1,18 @@
+#!/usr/bin/env ruby
+$LOAD_PATH.unshift(File.join(File.dirname(__FILE__), '..', 'lib'))
+require 'rubygems'
+require 'optparse'
+require 'eletro'
+
+Debug = false
+
+OptionParser.new { |op|
+  op.on('-d', '--debug')  { |d| Debug = true }
+  op.on('-c constants')   { |val| set :constants, val.to_sym }
+}.parse!(ARGV)
+
+if Debug
+  puts "Starting on #{OS}"
+end
+
+Eletro.do_your_thing(ARGV)

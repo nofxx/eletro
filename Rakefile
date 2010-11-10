@@ -5,12 +5,13 @@ begin
   require 'jeweler'
   Jeweler::Tasks.new do |gem|
     gem.name = "eletro"
-    gem.summary = %Q{TODO: one-line summary of your gem}
-    gem.description = %Q{TODO: longer description of your gem}
+    gem.summary = %Q{Eletric Helpers on Ruby}
+    gem.description = %Q{Eletric Stuff, Ohm Law, Karnaugh Maps and other gems on Ruby}
     gem.email = "x@nofxx.com"
     gem.homepage = "http://github.com/nofxx/eletro"
     gem.authors = ["Marcos Piccinini"]
-    gem.add_development_dependency "rspec", ">= 1.2.9"
+    gem.add_dependency "stick", ">= 1.3.3"
+    gem.add_development_dependency "rspec", ">= 2.0.1"
     # gem is a Gem::Specification... see http://www.rubygems.org/read/chapter/20 for additional settings
   end
   Jeweler::GemcutterTasks.new
