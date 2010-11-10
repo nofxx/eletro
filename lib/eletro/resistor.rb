@@ -4,6 +4,8 @@
 
 module Eletro
 
+  COLOR = true
+
   class Resistor
     attr_reader :value, :color
 
@@ -35,8 +37,8 @@ module Eletro
         @value = parse(params)
         @color = value2color(@value)
       else
-        @value = color2value(params)
-        @color = params
+        @color = params.split(//)
+        @value = color2value(@color)
       end
     end
 
@@ -50,12 +52,14 @@ module Eletro
       num
     end
 
+    alias :colors :color
+
+
     def calc char
       CODE.index(char.downcase.to_sym)
     end
 
-    def color2value txt
-      chars = txt.split(//) #.each_with_index do |c|
+    def color2value chars
       out = calc(chars[0])
       out = (out.to_s + calc(chars[1]).to_s).to_f
       out *= (10 ** (calc(chars[2])))
@@ -68,11 +72,15 @@ module Eletro
     end
 
     def value2color value
-      val = value.to_i
-
+      st, nd, *rest = value.to_s.split(//)
+      out = [CODE[st.to_i], CODE[nd.to_i]]
+      index = 1 if rest.size == 3 # ugly... sleepy... fix....
+      index ||= (value ** 0.1).round
+      out << CODE[index]
+      out.map(&:upcase)
     end
 
-    def to_s
+    def format
       v = if value < 1000
         "%g" % @value
       elsif value < 1000000
@@ -83,8 +91,37 @@ module Eletro
       out = "#{v}#{UNIT}"
       out += " ± #{@precision}%" if @precision
       out
+    end
+
+    def to_s
+      out = format
+      out += "   --"
+      @color.each do |c|
+        out +=  COLOR ? rgblize(c) : c
+      end
+      out + "--"
 
     end
+
+
+    def rgblize color
+      case color.downcase.to_sym
+        when :k then  "\e[40m#{color}\e[0m"
+        when :b then  "\e[0;33m#{color}\e[0m"
+        when :r then  "\e[41m#{color}\e[0m"
+        when :g then  "\e[42m#{color}\e[0m"
+        when :y then  "\e[1;33m#{color}\e[0m"
+        when :o then  "\e[43m#{color}\e[0m"
+        when :u then  "\e[44m#{color}\e[0m"
+        when :v then  "\e[45m#{color}\e[0m"
+        when :w then  "\e[47m#{color}\e[0m"
+        when :a then  "\e[31m#{color}\e[0m"
+        else ".."
+      end
+
+    end
+
+    def bold(txt);      "\e[2m#{txt}\e[0m";    end
 
   end
 end

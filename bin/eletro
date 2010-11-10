@@ -15,4 +15,20 @@ if Debug
   puts "Starting on #{OS}"
 end
 
-Eletro.do_your_thing(ARGV)
+if ARGV.empty?
+  puts <<EOF
+
+
+---------- Eletro!
+
+Use:
+
+    eletro BKR
+    eletro 220
+
+
+
+EOF
+else
+  Eletro.do_your_thing(ARGV)
+end
