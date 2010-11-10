@@ -9,7 +9,7 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Piccinini"]
-  s.date = %q{2010-11-08}
+  s.date = %q{2010-11-10}
   s.default_executable = %q{eletro}
   s.description = %q{Eletric Stuff, Ohm Law, Karnaugh Maps and other gems on Ruby}
   s.email = %q{x@nofxx.com}
@@ -24,7 +24,15 @@ Gem::Specification.new do |s|
      "LICENSE",
      "README.rdoc",
      "Rakefile",
+     "VERSION",
+     "bin/eletro",
+     "eletro.gemspec",
      "lib/eletro.rb",
+     "lib/eletro/ohm.rb",
+     "lib/eletro/resistor.rb",
+     "spec/colour_test",
+     "spec/eletro/ohm_spec.rb",
+     "spec/eletro/resistor_spec.rb",
      "spec/eletro_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -36,6 +44,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/eletro/ohm_spec.rb",
+     "spec/eletro/resistor_spec.rb",
      "spec/eletro_spec.rb"
   ]
 
