@@ -60,7 +60,7 @@ module Eletro
       out = (out.to_s + calc(chars[1]).to_s).to_f
       out *= (10 ** (calc(chars[2])))
       if chars.size > 3
-        @precision = PRECISION[calc(chars[2])]
+        @precision = PRECISION[calc(chars[3])]
       else
         #out *= (10 ** (calc(chars[2])))
       end
@@ -81,7 +81,7 @@ module Eletro
         "%gm" % (@value/1000000)
       end
       out = "#{v}#{UNIT}"
-      out += " ±#{@precision}%" if @precision
+      out += " ± #{@precision}%" if @precision
       out
 
     end

@@ -77,11 +77,16 @@ describe "Eletro::Resistor" do
       r.to_s.should eql("4.7kΩ")
     end
 
-
     it "should instantiate 4 chars" do
       r = Resistor.new("WWRS")
       r.value.should be_close(9900.0, 0.01)
-      r.to_s.should eql("9.9kΩ ± 2%")
+      r.to_s.should eql("9.9kΩ ± 10%")
+    end
+
+    it "should instantiate 4 chars" do
+      r = Resistor.new("BKRL")
+      r.value.should be_close(1000.0, 0.01)
+      r.to_s.should eql("1kΩ ± 5%")
     end
 
   end
