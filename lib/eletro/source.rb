@@ -50,15 +50,13 @@ module Eletro
 
     def calc_sum_net(ary=circuits)
       ary.map! do |i|
-        if i.respond_to?(:size)
+        if i.is_a?(Array)
           i = [calc_sum_net(i)] unless i.select { |c| c.is_a?(Array) }.empty?
           i.size > 1 ? serial_sum(i) : i[0]#.value
-        else
-          i#.value
+        else;  i
         end
       end
       ary.size == 1 ? ary[0] : parallel_sum(*ary)
-      # out.respond_to?(:value) ? out.value : out
     end
 
     def parallel_sum(r1, r2, *rest)

@@ -1,8 +1,15 @@
 
+require "eletro/helpers/color_code"
 require "eletro/ohm"
 require "eletro/part"
+require "eletro/diode"
+require "eletro/logic"
 require "eletro/source"
 require "eletro/resistor"
+require "eletro/inductor"
+require "eletro/capacitor"
+require "eletro/transistor"
+require "eletro/ic"
 
 module Eletro
 

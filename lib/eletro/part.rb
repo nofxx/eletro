@@ -1,7 +1,7 @@
 module Eletro
 
   class Part
-    attr_writer :value, :unit, :p0, :p1
+    attr_accessor :value, :unit, :p0, :p1, :v
 
     def p0
       @p0 ||= :gnd
@@ -31,9 +31,14 @@ module Eletro
       self.value.abs
     end
 
-
     def to_f;      @value;         end
     def to_i;      @value.to_i;    end
+
+    def unit;    end
+    def to_s
+      "#{@value}#{unit}"
+    end
+
 
     def coerce(other);      [other, @value];    end
 
@@ -61,5 +66,6 @@ module Eletro
     end
 
   end
+
 
 end

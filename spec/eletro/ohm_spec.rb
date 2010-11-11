@@ -33,19 +33,19 @@ describe "Eletro::Ohm" do
     it "should calc V if I have [I, R]" do
       o.i = 0.048
       o.r = 250
-      o.v.should be_close(12.0, 0.01)
+      o.v.should be_within(12.0).of(0.01)
     end
 
     it "should calc I if I have [V, R]" do
       o.v = 12
       o.r = 250
-      o.i.should be_close(0.048, 0.001)
+      o.i.should be_within(0.048).of(0.001)
     end
 
     it "should calc V if I have [I, R]" do
       o.i = 0.048
       o.r = 250
-      o.v.should be_close(12.0, 0.01)
+      o.v.should be_within(12.0).of(0.01)
     end
     # o.r.should eql(1)
 
