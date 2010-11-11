@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{eletro}
-  s.version = "0.0.2"
+  s.version = "0.1.0"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Marcos Piccinini"]
-  s.date = %q{2010-11-10}
+  s.date = %q{2010-11-11}
   s.default_executable = %q{eletro}
   s.description = %q{Eletric Stuff, Ohm Law, Resistor Colors, Karnaugh Maps and other gems on Ruby}
   s.email = %q{x@nofxx.com}
@@ -26,11 +26,19 @@ Gem::Specification.new do |s|
      "bin/eletro",
      "eletro.gemspec",
      "lib/eletro.rb",
+     "lib/eletro/capacitor.rb",
+     "lib/eletro/diode.rb",
+     "lib/eletro/helpers/color_code.rb",
+     "lib/eletro/ic.rb",
+     "lib/eletro/inductor.rb",
+     "lib/eletro/logic.rb",
      "lib/eletro/ohm.rb",
      "lib/eletro/part.rb",
      "lib/eletro/resistor.rb",
      "lib/eletro/source.rb",
+     "lib/eletro/transistor.rb",
      "spec/colour_test",
+     "spec/eletro/capacitor_spec.rb",
      "spec/eletro/ohm_spec.rb",
      "spec/eletro/part_spec.rb",
      "spec/eletro/resistor_spec.rb",
@@ -46,6 +54,7 @@ Gem::Specification.new do |s|
   s.test_files = [
     "spec/spec_helper.rb",
      "spec/eletro/source_spec.rb",
+     "spec/eletro/capacitor_spec.rb",
      "spec/eletro/ohm_spec.rb",
      "spec/eletro/resistor_spec.rb",
      "spec/eletro/part_spec.rb",
