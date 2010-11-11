@@ -18,7 +18,7 @@ module Eletro
       if circuit
 
       else
-        circuits << [part]
+        circuits << (part.is_a?(Array) ? part : [part])
       end
     end
 
@@ -41,39 +41,33 @@ module Eletro
     # [[100], [100, 100], [100, 100]]
     # [[100], [200], [200]]
     # [[66], [200]]
-    # [[49]] => 49 ohms
+    # [[50]] => 50 ohms
     #
     def sum_net
+      # Memoize
       @sum_net ||= calc_sum_net
     end
 
     def calc_sum_net(ary=circuits)
-      total = 0
-      children = ary.select do |a|
-        a.is_a?(Array) && !a.select { |c| c.is_a?(Array) }.empty?
-      end
-      if children.empty?
-        # Sum series
-        ary.map! do |a|
-          a.size > 1 ? a.reduce(0) { |i, c| i + c } : a[0].value
-        end
-        if ary.size == 1
-          ary[0]
+      ary.map! do |i|
+        if i.respond_to?(:size)
+          i = [calc_sum_net(i)] unless i.select { |c| c.is_a?(Array) }.empty?
+          i.size > 1 ? serial_sum(i) : i[0]#.value
         else
-          recurse_sum(*ary)
+          i#.value
         end
-      else
-        children.map { |c| calc_sum_net(c) }
       end
+      ary.size == 1 ? ary[0] : parallel_sum(*ary)
+      # out.respond_to?(:value) ? out.value : out
     end
 
-    def recurse_sum(r1, r2, *rest)
-      if rest.empty?
-        r1 * r2 / (r1 + r2)
-      else
-        v = r1 * r2 / (r1 + r2)
-        recurse_sum(*rest.unshift(v))
-      end
+    def parallel_sum(r1, r2, *rest)
+      sum = r1 * r2 / (r1 + r2)
+      rest.empty? ? sum : parallel_sum(*rest.unshift(sum))
+    end
+
+    def serial_sum(ary)
+      ary.reduce(0) { |i, c| i + c }
     end
 
     #just for fun

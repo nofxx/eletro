@@ -139,7 +139,7 @@ describe "Eletro::Resistor" do
     it "should print nicely" do
       r = Resistor.new("BKR")
       r.value.should be_close(1000.0, 0.01)
-      r.to_s.should eql("1kΩ   --\e[0;33mB\e[0m\e[40mK\e[0m\e[41mR\e[0m--")
+      r.pretty_output.should eql("1kΩ   --\e[0;33mB\e[0m\e[40mK\e[0m\e[41mR\e[0m--")
     end
 
   end

@@ -93,23 +93,17 @@ module Eletro
       out
     end
 
-    def to_s
+    def pretty_output
       out = format
       out += "   --"
       @color.each do |c|
         out +=  COLOR ? rgblize(c) : c
       end
       out + "--"
-
     end
 
-    def to_f;      @value;         end
-    def to_i;      @value.to_i;    end
-
-    def coerce(other);      [other, @value];    end
-
-    def round
-      # todo, table standard values, find nearest...
+    def to_s
+      "#{@value}Ω"
     end
 
     def rgblize color

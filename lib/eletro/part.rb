@@ -1,7 +1,7 @@
 module Eletro
 
   class Part
-    attr_writer :p0, :p1
+    attr_writer :value, :unit, :p0, :p1
 
     def p0
       @p0 ||= :gnd
@@ -11,6 +11,35 @@ module Eletro
       @p1 ||= :pwd
     end
 
+    def *(other)
+      self.class.new(self.value*other)
+    end
+
+    def +(other)
+      self.class.new(self.value+other)
+    end
+
+    def /(other)
+      self.class.new(self.value/other)
+    end
+
+    def -(other)
+      self.class.new(self.value-other)
+    end
+
+    def abs
+      self.value.abs
+    end
+
+
+    def to_f;      @value;         end
+    def to_i;      @value.to_i;    end
+
+    def coerce(other);      [other, @value];    end
+
+    def round
+      # todo, table standard values, find nearest...
+    end
 
     def method_missing(*args)
       txt = args.join
@@ -33,23 +62,4 @@ module Eletro
 
   end
 
-end
-
-
-def fatorial(n, t=nil)
-  t ||= n
-
-  if n == 1
-    puts "Cabou #{t}"
-  else
-    fatorial(n-1, t * (n-1))
-  end
-end
-
-
-
-
-def conta(n)
-  puts "Numero eh #{n}"
-  conta(n-1) if n > 0
 end

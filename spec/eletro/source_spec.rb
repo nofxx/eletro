@@ -34,19 +34,19 @@ describe "Eletro::Source" do
 
     describe "Loads" do
 
-      it "should add loads" do
+      it "should add loads 1k" do
         s = Source.new("12")
         s << Resistor.new("1k")
         s.i.should be_close(0.012, 0.0001)
       end
 
-      it "should add loads" do
+      it "should add loads 100 ohm" do
         s = Source.new("12")
         s << Resistor.new("100")
         s.i.should be_close(0.12, 0.001)
       end
 
-      it "should add loads" do
+      it "should add two parallel loads" do
         s = Source.new("12")
         s << Resistor.new("2k")
         s << Resistor.new("2k")
@@ -54,13 +54,50 @@ describe "Eletro::Source" do
         s.i.should be_close(0.012, 0.0001)
       end
 
-      it "should add loads" do
+      it "should add three parallel loads" do
         s = Source.new("12")
         s << Resistor.new("1k")
         s << Resistor.new("1k")
         s << Resistor.new("100")
         s.sum_net.should be_close(83.333, 0.001)
         s.i.should be_close(0.144, 0.001)
+      end
+
+      it "should add mixed parallel/serial" do
+        s = Source.new("12")
+        s << Resistor.new("100")
+        s << [Resistor.new("100"), Resistor.new("100")]
+        s << [Resistor.new("100"), Resistor.new("100")]
+        s.circuits.should have(3).items
+        s.sum_net.should be_close(50.0, 0.01)
+      end
+
+      it "should add mixed parallel/serial" do
+        s = Source.new("12")
+        s << Resistor.new("100")
+        s << [Resistor.new("100"), Resistor.new("100")]
+        s << [Resistor.new("100"), Resistor.new("200")]
+        s.circuits.should have(3).items
+        s.sum_net.should be_close(54.5454, 0.01)
+      end
+
+
+      it "should add mixed parallel/serial" do
+        s = Source.new("12")
+        s << Resistor.new("100")
+        s << [Resistor.new("100"), Resistor.new("100")]
+        s << [[Resistor.new("100")], [Resistor.new("200")]]
+        s.circuits.should have(3).items
+        s.sum_net.should be_close(33.333, 0.001)
+      end
+
+      it "should add mixed parallel series with more depth" do
+        s = Source.new("12")
+        s << Resistor.new("100")
+        s << [Resistor.new("100"), Resistor.new("100")]
+        s << [Resistor.new("100"), [Resistor.new("100"), Resistor.new("100")]]
+        s.circuits.should have(3).items
+        s.sum_net.should be_close(33.333, 0.001)
       end
 
       # it "should add loads calcs w" do
