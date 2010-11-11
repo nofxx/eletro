@@ -60,7 +60,7 @@ module Eletro
       index = 1 if rest.size == 3 # ugly... sleepy... fix....
       index ||= (value ** 0.1).round
       out << CODE[index]
-      out.map(&:upcase)
+      out
     end
 
 
@@ -78,7 +78,7 @@ module Eletro
         when :a then  "\e[31m"
         else ".."
       end
-      s += "#{color}\e[0m"
+      s += "#{color.to_s.upcase}\e[0m"
     end
 
 

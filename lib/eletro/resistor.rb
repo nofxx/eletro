@@ -46,9 +46,7 @@ module Eletro
     def pretty_output
       out = format
       out += "   --"
-      @color.each do |c|
-        out +=  COLOR ? rgblize(c) : c
-      end
+      @color.each { |c| out +=  COLOR ? rgblize(c) : c }
       out + "--"
     end
 

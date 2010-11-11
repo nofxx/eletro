@@ -63,32 +63,32 @@ describe "Eletro::Resistor" do
 
     it "should get colors for value" do
       r = Resistor.new("1k")
-      r.colors.join.should eql("BKR")
+      r.colors.join.should eql("bkr")
     end
 
     it "should get colors for value" do
       r = Resistor.new("10k")
-      r.colors.join.should eql("BKO")
+      r.colors.join.should eql("bko")
     end
 
     it "should get colors for value" do
       r = Resistor.new("1.1k")
-      r.colors.join.should eql("BBR")
+      r.colors.join.should eql("bbr")
     end
 
     it "should get colors for value" do
       r = Resistor.new("4k7")
-      r.colors.join.should eql("YVR")
+      r.colors.join.should eql("yvr")
     end
 
     it "should get colors for value" do
       r = Resistor.new("220")
-      r.colors.join.should eql("RRB")
+      r.colors.join.should eql("rrb")
     end
 
     it "should get colors for value" do
       r = Resistor.new("110")
-      r.colors.join.should eql("BBB")
+      r.colors.join.should eql("bbb")
     end
 
   end

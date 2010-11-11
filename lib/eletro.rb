@@ -17,7 +17,7 @@ module Eletro
     params = args.join
     if params =~ /A|mA/  # need to improve
     else
-      puts Resistor.new(params).to_s
+      puts Resistor.new(params).pretty_output
     end
   end
 

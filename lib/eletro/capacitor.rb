@@ -20,8 +20,6 @@ module Eletro
         m ||= 0
         m = m.to_i #(10**-(m.to_i))
       end
-      p txt
-      p m
       num = ("#{st}#{nd}#{'0' * m}").to_f * mult['p']
       num
     end
