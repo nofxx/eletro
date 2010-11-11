@@ -1,5 +1,7 @@
 
 require "eletro/ohm"
+require "eletro/part"
+require "eletro/source"
 require "eletro/resistor"
 
 module Eletro

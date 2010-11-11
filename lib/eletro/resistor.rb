@@ -6,7 +6,7 @@ module Eletro
 
   COLOR = true
 
-  class Resistor
+  class Resistor < Part
     attr_reader :value, :color
 
     UNIT = 'Ω'
@@ -103,6 +103,14 @@ module Eletro
 
     end
 
+    def to_f;      @value;         end
+    def to_i;      @value.to_i;    end
+
+    def coerce(other);      [other, @value];    end
+
+    def round
+      # todo, table standard values, find nearest...
+    end
 
     def rgblize color
       s = case color.downcase.to_sym

@@ -27,10 +27,14 @@ Gem::Specification.new do |s|
      "eletro.gemspec",
      "lib/eletro.rb",
      "lib/eletro/ohm.rb",
+     "lib/eletro/part.rb",
      "lib/eletro/resistor.rb",
+     "lib/eletro/source.rb",
      "spec/colour_test",
      "spec/eletro/ohm_spec.rb",
+     "spec/eletro/part_spec.rb",
      "spec/eletro/resistor_spec.rb",
+     "spec/eletro/source_spec.rb",
      "spec/eletro_spec.rb",
      "spec/spec_helper.rb"
   ]
@@ -41,8 +45,10 @@ Gem::Specification.new do |s|
   s.summary = %q{Eletric Helpers on Ruby}
   s.test_files = [
     "spec/spec_helper.rb",
+     "spec/eletro/source_spec.rb",
      "spec/eletro/ohm_spec.rb",
      "spec/eletro/resistor_spec.rb",
+     "spec/eletro/part_spec.rb",
      "spec/eletro_spec.rb"
   ]
 
