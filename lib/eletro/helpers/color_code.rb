@@ -65,7 +65,7 @@ module Eletro
 
 
     def rgblize color
-      s = case color.downcase.to_sym
+      s = case color.to_s.downcase.to_sym
         when :k then  "\e[40m"
         when :b then  "\e[0;33m"
         when :r then  "\e[41m"
