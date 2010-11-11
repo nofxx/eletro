@@ -16,7 +16,41 @@ Eletric Stuff, Ohm Law, Resistor Colors, Karnaugh Maps...
     -> 1kΩ   --BKR--
 
 
+    eletro 4k7
+
+    -> 4.7kΩ   --YVR--
+
+
+
 With *SH colors!
+
+
+== Power Supply (Source)
+
+Calculates load network on a PS.
+Simbling loads mean serial, simbling arrays parallel.
+
+    s = Source.new("12dc")
+    s << Resistor.new("100")
+    s << [Resistor.new("100"), Resistor.new("100")]
+    s << [Resistor.new("100"), Resistor.new("200")]
+
+    s.sum_net
+    => Resistor 54.5454Ω
+
+    s.i
+    => 0.220mA
+
+    s << Resistor.new("100")
+    s << [Resistor.new("100"), Resistor.new("100")]
+    s << [Resistor.new("100"), [Resistor.new("100"), Resistor.new("100")]]
+
+    s.sum_net
+    => Resistor 33.3333Ω
+
+    s.i
+    => 0.360mA
+
 
 == Ohm`s Law
 
