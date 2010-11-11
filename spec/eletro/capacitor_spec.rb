@@ -12,17 +12,28 @@ describe "Eletro::Capacitor" do
     end
 
     it "should instantiate 47" do
-      r = Capacitor.new("47")
-      r.value.should be_within(220.0).of(0.1)
-      r.format.should eql("47pF")
+      c = Capacitor.new("47")
+      c.value.should be_within(220.0).of(0.1)
+      c.format.should eql("47pF")
     end
 
     it "should instantiate 102" do
-      r = Capacitor.new("102")
-      r.value.should be_within(220.0).of(0.1)
-      r.format.should eql("1uF")
+      c = Capacitor.new("102")
+      c.value.should be_within(220.0).of(0.1)
+      c.format.should eql("1nF")
     end
 
+    it "should instantiate 472" do
+      c = Capacitor.new("472")
+      c.value.should be_within(220.0).of(0.1)
+      c.format.should eql("4.7nF")
+    end
+
+    it "should instantiate 473" do
+      c = Capacitor.new("473")
+      c.value.should be_within(220.0).of(0.1)
+      c.format.should eql("47nF")
+    end
 
   end
 
