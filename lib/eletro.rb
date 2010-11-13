@@ -1,3 +1,5 @@
+require 'stick/units'
+require 'bigdecimal'
 
 require "eletro/helpers/color_code"
 require "eletro/ohm"

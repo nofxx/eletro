@@ -59,8 +59,9 @@ module Eletro
           respond_to?(txt) ? send(args.join) : nil
         end
       else
-        raise NoMethodError.new("undefined method `#{args.join}' " +
-        "for #{self.inspect}:#{self.class.name}")
+        super
+        # raise NoMethodError.new("undefined method `#{args.join}' " +
+        # "for #{self.inspect}:#{self.class.name}")
       end
 
     end

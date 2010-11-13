@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-require 'stick/units'
-require 'bigdecimal'
 
 module Eletro
   class Ohm
