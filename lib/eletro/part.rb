@@ -1,7 +1,7 @@
 module Eletro
 
   class Part
-    attr_accessor :value, :unit, :p0, :p1, :v
+    attr_accessor :value, :unit, :p0, :p1, :v, :i
 
     def p0
       @p0 ||= :gnd

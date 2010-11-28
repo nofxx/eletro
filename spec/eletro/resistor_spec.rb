@@ -27,27 +27,51 @@ describe "Eletro::Resistor" do
       r = Resistor.new("100R")
       r.value.should be_within(0.1).of(100.0)
       r.format.should eql("100Ω")
-    end
-
-    it "should instantiate 1k ohms" do
-      r = Resistor.new("1k")
-      r.value.should be_within(0.1).of(1000.0)
-      r.format.should eql("1kΩ")
+      Resistor.new("100").colors.join.should eql("bkb")
     end
 
     it "should instantiate 1k ohms" do
       r = Resistor.new("1000.0")
       r.value.should be_within(1000.0).of(0.1)
       r.format.should eql("1kΩ")
+      Resistor.new("1k").colors.join.should eql("bkr")
     end
 
-    it "should instantiate 1k ohms" do
+    it "should instantiate 10k ohms" do
+      r = Resistor.new("BKO")
+      r.value.should be_within(0.1).of(10000)
+      r.format.should eql("10kΩ")
+      Resistor.new("10k").colors.join.should eql("bko")
+    end
+
+    it "should instantiate 100k ohms" do
+      r = Resistor.new("BKY")
+      r.value.should be_within(0.1).of(100000)
+      r.format.should eql("100kΩ")
+      Resistor.new("100k").colors.join.should eql("bky")
+    end
+
+    it "should instantiate 1m ohms" do
+      r = Resistor.new("BKG")
+      r.value.should be_within(0.1).of(1000000)
+      r.format.should eql("1mΩ")
+      Resistor.new("1m").colors.join.should eql("bkg")
+    end
+
+    it "should instantiate 10m ohms" do
+      r = Resistor.new("BKU")
+      r.value.should be_within(0.1).of(10000000)
+      r.format.should eql("10mΩ")
+      Resistor.new("10m").colors.join.should eql("bku")
+    end
+
+    it "should instantiate 1.1k ohms" do
       r = Resistor.new("1100.0")
       r.value.should be_within(0.1).of(1100.1)
       r.format.should eql("1.1kΩ")
     end
 
-    it "should instantiate 1k ohms" do
+    it "should instantiate 1.1k ohms" do
       r = Resistor.new("BBR")
       r.value.should be_within(0.1).of(1100)
       r.format.should eql("1.1kΩ")

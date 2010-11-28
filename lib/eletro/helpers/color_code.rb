@@ -42,6 +42,9 @@ module Eletro
       CODE.index(char.downcase.to_sym)
     end
 
+    #
+    # Converts the color code value to numeric
+    #
     def color2value chars
       out = calc(chars[0])
       out = (out.to_s + calc(chars[1]).to_s).to_f
@@ -54,16 +57,24 @@ module Eletro
       out
     end
 
+    #
+    # Converts a numeric value into a color code array
+    #
+    #              st   nd   rest (multiplier)
+    #    123.0 -> ['1', '2', '3.0']
+    #
+    #
     def value2color value
       st, nd, *rest = value.to_s.split(//)
       out = [CODE[st.to_i], CODE[nd.to_i]]
-      index = 1 if rest.size == 3 # ugly... sleepy... fix....
-      index ||= (value ** 0.1).round
-      out << CODE[index]
+      out << CODE[value.to_i.to_s.size-2]
       out
     end
 
 
+    #
+    # Creates a coloured version to print on stdout
+    #
     def rgblize color
       s = case color.to_s.downcase.to_sym
         when :k then  "\e[40m"

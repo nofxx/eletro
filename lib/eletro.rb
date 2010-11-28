@@ -4,6 +4,7 @@ require 'bigdecimal'
 require "eletro/helpers/color_code"
 require "eletro/ohm"
 require "eletro/part"
+require "eletro/wire"
 require "eletro/diode"
 require "eletro/logic"
 require "eletro/source"
